@@ -16,8 +16,13 @@ Everything required to show your slides is installed locally using the
 Installation
 ------------
 
-Just download or clone this repository, run the included `setup.sh` script to
-install everything, then run `develop.sh`.
+Just download/unzip or clone this repository, run the included `setup.sh` script
+to install everything, then run `develop.sh`.
+
+    git clone https://github.com/lmjohns3/deck.js-presentation slides
+    cd slides
+    ./setup.sh
+    ./develop.sh
 
 You can then edit your slides and view them in your browser locally. When you're
 done editing and ready to present, you copy the entire folder onto a USB drive
