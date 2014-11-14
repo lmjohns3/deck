@@ -22,7 +22,7 @@ grep src fonts/fonts.css | \
   /bin/bash
 
 if [[ ! -f MathJax.zip ]]
-then curl 'https://github.com/mathjax/MathJax/archive/v2.4-latest.zip' > MathJax.zip
+then curl -L 'https://github.com/mathjax/MathJax/archive/v2.4-latest.zip' > MathJax.zip
 fi
 
 if [[ ! -f mathjax ]]
