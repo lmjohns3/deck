@@ -1,6 +1,8 @@
 # generated files
 *.html
 *.css
+*.css.map
+.sass-cache
 
 # stuff that setup.sh downloads
 *.zip
