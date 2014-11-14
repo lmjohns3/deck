@@ -1,8 +1,8 @@
 #!/bin/bash
 
-jade --pretty --watch $1.jade &
+jade --pretty --watch *.jade &
 jade_pid=$!
 
-sass --watch $1.sass
+sass --watch *.sass
 
 kill $jade_pid
