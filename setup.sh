@@ -46,7 +46,7 @@ fi
 if [[ ! -f mathjax ]]
 then
     echo 'Unpacking MathJax ...'
-    unzip MathJax.zip
+    unzip MathJax.zip >/dev/null 2>&1
     mv MathJax-2.4-latest mathjax
 else
     echo 'MathJax already unpacked!'
