@@ -7,8 +7,6 @@ $leading: 30px
   text-align: center
 
 .slide
-  padding: $leading 0 0 0
-
   pre, ol, ul, li, p, h1, h2, h3, h4, h5, h6
     margin: 0 0 $leading 0
     padding: 0
@@ -16,16 +14,25 @@ $leading: 30px
   code
     font-family: "Source Code Pro"
 
-  h1, h2, h3, h4, h5, h6
-    font-family: "Source Sans Pro"
-
   h1
     font-size: 3em
     margin-top: 1em
+    color: #369
 
   h2
     font-size: 2em
-    color: rgb(203,96,21)
+    color: #333
+    background: #9cf
+    padding: ($leading / 2) ($leading)
+    margin: 0 (-$leading) ($leading) (-$leading)
+
+  h3
+    color: #333
+
+  #subtitle
+    h2
+      background: transparent
+      margin-bottom: 0
 
   pre
     $pre-bg: #f8f8f8
@@ -38,19 +45,15 @@ $leading: 30px
     list-style: none
 
     li:before
-      // content: '\2605' // ★
-      content: '\261e' // ☞
+      content: '\2605' // ★
+      //content: '\261e' // ☞
       margin: 0 1em
 
   ::selection
     background: #f93
     color: #fff
 
-  a,
-  a:hover,
-  a:focus,
-  a:active,
-  a:visited
+  a, a:hover, a:focus, a:active, a:visited
     color: #369
     text-decoration: none
 
@@ -80,4 +83,4 @@ $leading: 30px
 .no-touch .deck-container.deck-menu .slide:hover
   background: #ddf
 
-
+@import 'highlight/github.min.css'
