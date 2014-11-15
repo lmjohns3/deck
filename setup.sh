@@ -43,7 +43,7 @@ else
     echo 'MathJax already downloaded!'
 fi
 
-if [[ ! -f mathjax ]]
+if [[ ! -d mathjax ]]
 then
     echo 'Unpacking MathJax ...'
     unzip MathJax.zip >/dev/null 2>&1
