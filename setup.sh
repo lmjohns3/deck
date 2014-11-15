@@ -28,17 +28,17 @@ fi
 
 echo 'Installing fonts ...'
 mkdir -p fonts
-curl "http://fonts.googleapis.com/css?family=$fonts" | \
+curl -sSL "http://fonts.googleapis.com/css?family=$fonts" | \
   sed "s|local('|local('fonts/|g" > fonts/fonts.css
 grep src fonts/fonts.css | \
-  sed 's|^  src\: local(.*), local(.\(.*\).), url(\(.*\)) format.*|curl "\2" > \1.ttf|' | \
-  sed 's|^  src\: local(.\(.*\).), url(\(.*\)) format.*|curl "\2" > \1.ttf|' | \
+  sed 's|^  src\: local(.*), local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > \1.ttf|' | \
+  sed 's|^  src\: local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > \1.ttf|' | \
   /bin/bash
 
 if [[ ! -f MathJax.zip ]]
 then
     echo 'Downloading MathJax ...'
-    curl -L 'https://github.com/mathjax/MathJax/archive/v2.4-latest.zip' > MathJax.zip
+    curl -sSL 'https://github.com/mathjax/MathJax/archive/v2.4-latest.zip' > MathJax.zip
 else
     echo 'MathJax already downloaded!'
 fi
@@ -53,12 +53,12 @@ else
 fi
 
 echo 'Installing deck.js ...'
-curl -L 'https://github.com/imakewebthings/deck.js/archive/latest.zip' > deck.zip
-unzip deck.zip
+curl -sSL 'https://github.com/imakewebthings/deck.js/archive/latest.zip' > deck.zip
+unzip deck.zip >/dev/null 2>&1
 mv deck.js-latest deck
 
 echo 'Installing highlight.js ...'
 mkdir -p highlight
 for f in highlight.min.js styles/tomorrow-night-bright.min.css
-do curl -L "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/$f" > highlight/$f
+do curl -sSL "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/$f" > highlight/$f
 done
