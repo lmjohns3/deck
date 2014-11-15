@@ -1,1 +1,83 @@
 /* Put custom presentation styles in this file! */
+
+$font-size: 24px
+$leading: 30px
+
+.centered
+  text-align: center
+
+.slide
+  padding: $leading 0 0 0
+
+  pre, ol, ul, li, p, h1, h2, h3, h4, h5, h6
+    margin: 0 0 $leading 0
+    padding: 0
+
+  code
+    font-family: "Source Code Pro"
+
+  h1, h2, h3, h4, h5, h6
+    font-family: "Source Sans Pro"
+
+  h1
+    font-size: 3em
+    margin-top: 1em
+
+  h2
+    font-size: 2em
+    color: rgb(203,96,21)
+
+  pre
+    $pre-bg: #f8f8f8
+    padding: $leading / 4
+    border-radius: 10px
+    border: solid 1px darken($pre-bg, 10%)
+    background: $pre-bg
+
+  ol, ul
+    list-style: none
+
+    li:before
+      // content: '\2605' // ★
+      content: '\261e' // ☞
+      margin: 0 1em
+
+  ::selection
+    background: #f93
+    color: #fff
+
+  a,
+  a:hover,
+  a:focus,
+  a:active,
+  a:visited
+    color: #369
+    text-decoration: none
+
+  a:hover, a:focus
+    text-decoration: underline
+
+.deck-container
+  background: #fff
+  font-family: "Source Sans Pro"
+  font-size: $font-size
+  line-height: $leading / $font-size
+  -webkit-font-smoothing: antialiased
+  -webkit-text-size-adjust: 100%
+
+.deck-before, .deck-previous
+  opacity: 0.4
+
+.deck-status
+  font-size: 0.6666em
+
+.deck-menu
+  .slide
+    background: #eee
+  .deck-current
+    background: #ddf
+
+.no-touch .deck-container.deck-menu .slide:hover
+  background: #ddf
+
+
