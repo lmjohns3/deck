@@ -55,5 +55,7 @@ html
     script(src="deck/extensions/status/deck.status.js")
     script(src="deck/extensions/scale/deck.scale.js")
     script(src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+    script(src="highlight/highlight.min.js")
     script.
+      hljs.initHighlightingOnLoad();
       $(function() { $.deck('.slide'); });

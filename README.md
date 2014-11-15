@@ -7,6 +7,7 @@ includes the following features:
 - Use [jade](http://jade-lang.com) to generate HTML
 - Use [sass](http://sass-lang.com) to generate CSS
 - Include math easily with [MathJax](http://mathjax.org)
+- Show beautiful source code with [highlight.js](http://highlightjs.org)
 - Typeset everything using [awesome fonts](http://google.com/fonts)
 
 Everything required to show your slides is installed locally using the

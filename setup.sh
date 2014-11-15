@@ -56,3 +56,9 @@ echo 'Installing deck.js ...'
 curl -L 'https://github.com/imakewebthings/deck.js/archive/latest.zip' > deck.zip
 unzip deck.zip
 mv deck.js-latest deck
+
+echo 'Installing highlight.js ...'
+mkdir -p highlight
+for f in highlight.min.js styles/tomorrow-night-bright.min.css
+do curl -L "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/$f" > highlight/$f
+done
