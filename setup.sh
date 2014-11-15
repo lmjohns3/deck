@@ -1,17 +1,17 @@
 #!/bin/bash
 
-highlightcdn='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3'
-highlightstyle='tomorrow-night-bright'
-highlightlangs=''
+highlightcdn="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3"
+highlightstyle="github"  # "tomorrow-night-bright"
+highlightlangs=""
 fonts="Source+Sans+Pro:400,700,400italic,700italic|Source+Code+Pro:400,700|Source+Serif+Pro:400,700,400italic,700italic"
 
 usage() {
     cat <<_EOF
-setup.sh [-f] [-l 'A B ...'] [-s STYLE]
+setup.sh [-f] [-l "A B ..."] [-s STYLE]
 
 Command-line arguments:
   -f            install PT instead of Source font family
-  -l 'A B ...'  install highlight.js languages A, B, ...
+  -l "A B ..."  install highlight.js languages A, B, ...
   -s STYLE      install the given highlight.js style,
                 defaults to ${highlightstyle}
 
@@ -21,7 +21,7 @@ _EOF
     exit 1
 }
 
-while getopts ':fl:s:' opt
+while getopts ":fl:s:" opt
 do case $opt in
    f)
        fonts="PT+Sans:400,700,400italic,700italic|PT+Mono:400,700|PT+Serif:400,700,400italic,700italic"
@@ -42,7 +42,7 @@ shift $((OPTIND-1))
 
 if [[ -z "$(which jade)" ]]
 then
-    echo 'Installing jade (npm package) ...'
+    echo "Installing jade (npm package) ..."
     npm install -g jade
 else
     echo "Found $(which jade)!"
@@ -50,14 +50,14 @@ fi
 
 if [[ -z "$(which sass)" ]]
 then
-    echo 'Installing sass (ruby gem) ...'
+    echo "Installing sass (ruby gem) ..."
     gem install sass
 else
     echo "Found $(which sass)!"
 fi
 
 # FONTS
-echo 'Installing fonts ...'
+echo "Installing fonts ..."
 mkdir -p fonts
 curl -sSL "http://fonts.googleapis.com/css?family=$fonts" | \
   sed "s|local('|local('fonts/|g" > fonts/fonts.css
@@ -69,30 +69,30 @@ grep src fonts/fonts.css | \
 # MATHJAX
 if [[ ! -f MathJax.zip ]]
 then
-    echo 'Downloading MathJax ...'
-    curl -sSL 'https://github.com/mathjax/MathJax/archive/v2.4-latest.zip' > MathJax.zip
+    echo "Downloading MathJax ..."
+    curl -sSL "https://github.com/mathjax/MathJax/archive/v2.4-latest.zip" > MathJax.zip
 else
-    echo 'MathJax already downloaded!'
+    echo "MathJax already downloaded!"
 fi
 
 if [[ ! -d mathjax ]]
 then
-    echo 'Unpacking MathJax ...'
+    echo "Unpacking MathJax ..."
     unzip MathJax.zip >/dev/null 2>&1
     mv MathJax-2.4-latest mathjax
 else
-    echo 'MathJax already unpacked!'
+    echo "MathJax already unpacked!"
 fi
 
 # DECK.JS
-echo 'Installing deck.js ...'
-curl -sSL 'https://github.com/imakewebthings/deck.js/archive/latest.zip' > deck.zip
+echo "Installing deck.js ..."
+curl -sSL "https://github.com/imakewebthings/deck.js/archive/latest.zip" > deck.zip
 unzip deck.zip >/dev/null 2>&1
 rm -fr deck
 mv deck.js-latest deck
 
 # HIGHLIGHT.JS
-echo 'Installing highlight.js ...'
+echo "Installing highlight.js ..."
 mkdir -p highlight
 curl -sSL "${highlightcdn}/highlight.min.js" > highlight/highlight.min.js
 
