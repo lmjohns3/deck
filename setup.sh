@@ -60,5 +60,8 @@ mv deck.js-latest deck
 echo 'Installing highlight.js ...'
 mkdir -p highlight
 for f in highlight.min.js styles/tomorrow-night-bright.min.css
-do curl -sSL "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/$f" > highlight/$f
+do
+    mkdir -p $(dirname highlight/$f)
+    echo "- $f"
+    curl -sSL "http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/$f" > highlight/$f
 done
