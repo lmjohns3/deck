@@ -40,7 +40,7 @@ do case $opt in
    m)
        install="$install mathjax "
        ;;
-   s)
+   t)
        install="$install hljs=$OPTARG "
        ;;
    *)
