@@ -6,6 +6,7 @@
 
 # stuff that setup.sh downloads
 *.zip
-mathjax
 deck
 fonts
+highlight
+mathjax
