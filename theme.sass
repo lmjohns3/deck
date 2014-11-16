@@ -1,4 +1,4 @@
-/* Put custom presentation styles in this file! */
+// Put custom presentation styles in this file!
 
 $font-size: 24px
 $leading: 30px
@@ -8,6 +8,14 @@ $leading: 30px
 
 .rounded
   border-radius: $leading
+
+.cite
+  font-size: 0.5em
+  color: #444
+  &:before
+    content: '['
+  &:after
+    content: ']'
 
 .slide
   pre, ol, ul, li, p, h1, h2, h3, h4, h5, h6
