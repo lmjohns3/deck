@@ -1,8 +1,8 @@
-deck.js-presentation
-====================
+deck
+====
 
-This repository is a template for using deck.js for nice presentations. It
-includes the following features:
+This repository is a sort of template for using deck.js for nice presentations.
+It includes support for the following features:
 
 - Use [jade](http://jade-lang.com) to generate HTML
 - Use [sass](http://sass-lang.com) to generate CSS
@@ -20,8 +20,8 @@ Installation
 Just download/unzip or clone this repository, run the included `setup.sh` script
 to install everything, then run `develop.sh`.
 
-    git clone https://github.com/lmjohns3/deck.js-presentation slides
-    cd slides
+    git clone https://github.com/lmjohns3/deck
+    cd deck
     ./setup.sh -d -m -f source -t github
     ./develop.sh
 
@@ -43,11 +43,11 @@ need the following on your system:
 
 - [ruby](http://rubygems.org) - required to use sass
 - [npm](http://npmjs.org) - required to use jade
-- [curl](http://curl.haxx.se) - used to download fonts, MathJax and deck.js
+- [curl](http://curl.haxx.se) - used to download supporting materials
 
 Note that none of these tools are needed when you have finished creating your
 slides -- they are just used when in "development mode."
 
-If you're running on a Mac or Linux box, most of these tools are probably
-already installed. If not, it's pretty straightforward to install them using
-existing package managers.
+If you're already doing development on a Mac or Linux box, most of these tools
+might already be installed. If not, it's pretty straightforward to install them
+using existing package managers.
