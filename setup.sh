@@ -15,11 +15,11 @@ Command-line arguments:
   -m              install mathjax
   -t THEME        install highlight.js with a particular theme, e.g. github
 
-See https://highlightjs.org/static/test.html for available highlight.js styles.
+See https://highlightjs.org/static/test.html for available highlight.js themes.
 
-Example invocation to install most things from scratch:
+Example invocation to get going from scratch:
 
-  setup.sh -d -m -f source -t github
+  ./setup.sh -d -m -f source -t github
 
 _EOF
     exit 1
