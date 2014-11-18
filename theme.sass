@@ -58,10 +58,33 @@ $leading: 30px
   ol, ul
     list-style: none
 
-    li:before
+    li:before // this sets the default bullet appearance
       content: '\2605' // ★
-      //content: '\261e' // ☞
-      margin: 0 1em
+      margin: 0 0.5em 0 0
+
+    li.bullet:before, li.dot:before
+      content: '\2022' // •
+
+    li.star:before
+      content: '\2605' // ★
+
+    li.section:before
+      content: '\00a7' // §
+
+    li.check:before, li.yes:before
+      content: '\2714' // ✔
+
+    li.x:before, li.no:before
+      content: '\2718' // ✘
+
+    li.hand:before, li.index:before, li.fist:before
+      content: '\261e' // ☞
+
+    li.asterism:before, li.stars:before
+      content: '\2042' // ⁂
+
+    li.fleuron:before, li.flower:before
+      content: '\2767' // ❧
 
   ::selection
     background: #f93
