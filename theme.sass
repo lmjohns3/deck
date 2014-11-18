@@ -17,82 +17,81 @@ $leading: 30px
   &:after
     content: ']'
 
-.slide
-  pre, ol, ul, li, p, h1, h2, h3, h4, h5, h6
-    margin: 0 0 $leading 0
-    padding: 0
+pre, ol, ul, li, p, h1, h2, h3, h4, h5, h6
+  margin: 0 0 $leading 0
+  padding: 0
 
-  code
-    font-family: "Source Code Pro"
+code
+  font-family: "Source Code Pro"
 
-  h1, h2, h3
-    color: #333
+h1, h2, h3
+  color: #333
 
-  h1, h2
-    background: #9cf
-    margin: 0 (-$leading) ($leading) (-$leading)
-    padding: $leading
+h1, h2
+  background: #9cf
+  margin: 0 (-$leading) ($leading) (-$leading)
+  padding: $leading
 
-  h1
-    font-size: 3em
-    padding-top: 2 * $leading
+h1
+  font-size: 3em
+  padding-top: 2 * $leading
 
+h2
+  font-size: 2em
+  padding-bottom: $leading / 2
+
+#title
   h2
-    font-size: 2em
-    padding-bottom: $leading / 2
+    background: none
+    margin-bottom: 0
 
-  &#title
-    h2
-      background: none
-      margin-bottom: 0
+pre
+  $pre-bg: #f8f8f8
+  padding: $leading / 4
+  border: solid 1px darken($pre-bg, 10%)
+  background: $pre-bg
 
-  pre
-    $pre-bg: #f8f8f8
-    padding: $leading / 4
-    border: solid 1px darken($pre-bg, 10%)
-    background: $pre-bg
+ol, ul
+  list-style: none
 
-  ol, ul
-    list-style: none
+  li:before // this sets the default bullet appearance
+    content: '\2605' // ★
+    margin: 0 0.5em 0 0
 
-    li:before // this sets the default bullet appearance
-      content: '\2605' // ★
-      margin: 0 0.5em 0 0
+  li.bullet:before, li.dot:before
+    content: '\2022' // •
 
-    li.bullet:before, li.dot:before
-      content: '\2022' // •
+  li.star:before
+    content: '\2605' // ★
 
-    li.star:before
-      content: '\2605' // ★
+  li.section:before
+    content: '\00a7' // §
 
-    li.section:before
-      content: '\00a7' // §
+  li.check:before, li.yes:before
+    content: '\2714' // ✔
 
-    li.check:before, li.yes:before
-      content: '\2714' // ✔
+  li.x:before, li.no:before
+    content: '\2718' // ✘
 
-    li.x:before, li.no:before
-      content: '\2718' // ✘
+  li.hand:before, li.index:before, li.fist:before
+    content: '\261e' // ☞
 
-    li.hand:before, li.index:before, li.fist:before
-      content: '\261e' // ☞
+  li.asterism:before, li.stars:before
+    content: '\2042' // ⁂
 
-    li.asterism:before, li.stars:before
-      content: '\2042' // ⁂
+  li.fleuron:before, li.flower:before
+    content: '\2767' // ❧
 
-    li.fleuron:before, li.flower:before
-      content: '\2767' // ❧
+::selection
+  background: #f93
+  color: #fff
 
-  ::selection
-    background: #f93
-    color: #fff
+a, a:hover, a:focus, a:active, a:visited
+  color: #369
+  text-decoration: none
 
-  a, a:hover, a:focus, a:active, a:visited
-    color: #369
-    text-decoration: none
-
-  a:hover, a:focus
-    text-decoration: underline
+a:hover, a:focus
+  text-decoration: underline
 
 .deck-container
   background: #fff
