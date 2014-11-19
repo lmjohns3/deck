@@ -3,7 +3,7 @@
 @import 'deck/themes/style/reset'
 
 $font-size: 24px
-$leading: 30px
+$spacing: 30px
 
 $black:     #111111
 $blackish:  #333333
@@ -15,51 +15,26 @@ $blueish:   #bbddff
 $blue:      #99ccff
 $red:       #cc3333
 
-.centered
-  text-align: center
-
-.rounded
-  border-radius: $leading
-
-.cite
-  font-size: 0.9em
-  color: #444
-  &:before
-    content: '['
-  &:after
-    content: ']'
-
-pre, ol, ul, li, p, h1, h2, h3, h4, h5, h6
-  margin: 0 0 $leading 0
-  padding: 0
-
 code
   font-family: "Source Code Pro"
 
-h1, h2, h3
-  color: #333
+pre, ol, ul, li, p, div.video
+  margin: $spacing $spacing 0 $spacing
+  padding: 0
 
-h1, h2
-  background: #9cf
-  margin: 0 (-$leading) ($leading) (-$leading)
-  padding: $leading
-
-h1
-  font-size: 3em
-  padding-top: 2 * $leading
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  padding: $spacing
+  background: $blue
+  color: $blackish
 
 h2
-  font-size: 2em
-  padding-bottom: $leading / 2
-
-#title
-  h2
-    background: none
-    margin-bottom: 0
+  padding-bottom: $spacing / 3
+  border: none
 
 pre
-  $pre-bg: #f8f8f8
-  padding: $leading / 4
+  $pre-bg: #f8f8f8  // for the github highlight.js theme.
+  padding: $spacing / 2
   border: solid 1px darken($pre-bg, 10%)
   background: $pre-bg
 
@@ -95,36 +70,73 @@ ol, ul
     content: '\2767' // ❧
 
 ::selection
-  background: #f93
-  color: #fff
+  background: $red
+  color: $white
 
 a, a:hover, a:focus, a:active, a:visited
-  color: #369
+  color: $blue
   text-decoration: none
 
 a:hover, a:focus
   text-decoration: underline
 
 .deck-container
-  background: #fff
+  background: $white
+  color: $black
   font-family: "Source Sans Pro"
   font-size: $font-size
-  line-height: $leading / $font-size
+  line-height: 1
   -webkit-font-smoothing: antialiased
   -webkit-text-size-adjust: 100%
-
-.deck-before, .deck-previous
-  opacity: 0.4
 
 .deck-status
   font-size: 0.6666em
 
 .deck-menu
   .slide
-    background: #eee
+    background: $whiteish
   .deck-current
-    background: #ddf
+    background: $blueish
 
 .no-touch .deck-container.deck-menu .slide:hover
-  background: #ddf
+  background: $blueish
 
+.video
+  iframe
+    height: 360px
+    width: 480px
+
+.video.sixteen-x-nine
+  iframe
+    width: 640px
+
+.centered
+  text-align: center
+
+.rounded
+  border-radius: $spacing / 3
+
+.cite
+  font-size: 0.9em
+  color: $blackish
+  &:before
+    content: '['
+  &:after
+    content: ']'
+
+#title
+  h1
+    top: 0
+    position: relative
+    padding: $spacing
+    transform: none
+
+  h2, h3
+    border: none
+    background: none
+
+  h3
+    padding-top: 0
+
+  #venue
+    padding-top: $spacing
