@@ -25,7 +25,7 @@
         <h1>Presentation</h1>
         <h2 id="author">Author</h2>
         <h3 id="affiliation">Affiliation</h3>
-        <h3 id="venue">Venue, Date</h3>
+        <h3 id="venue" class="spaced">Venue, Date</h3>
       </section>
       <section class="slide">
         <h2>Content</h2>
@@ -72,6 +72,6 @@ print s[0]
 <script src="highlight/highlight.min.js"></script>
 <!--script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js")-->
 <script>
-  hljs.initHighlightingOnLoad();
   $(function() { $.deck('.slide'); });
+  hljs.initHighlightingOnLoad();
 </script>
