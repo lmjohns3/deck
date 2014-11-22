@@ -77,12 +77,14 @@ then
     echo "Installing fonts ..."
     [[ "$install" = "*fonts=pt*" ]] && fn=$PTFONTS || fn=$SOURCEFONTS
     mkdir -p fonts
-    curl -sSL "http://fonts.googleapis.com/css?family=$fn" | \
-        sed "s|local('|local('fonts/|g" > fonts/fonts.css
-    grep src fonts/fonts.css | \
-        sed 's|^  src\: local(.*), local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > \1.ttf|' | \
-        sed 's|^  src\: local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > \1.ttf|' | \
-        bash
+    curl -sSL "http://fonts.googleapis.com/css?family=$fn" > _fonts.css
+    grep src _fonts.css | \
+        sed 's|^  src\: local(.*), local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > fonts/\1.ttf|' | \
+        sed 's|^  src\: local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > fonts/\1.ttf|' | bash
+    cat _fonts.css | \
+        sed 's|^  src\: local(.*), local(.\(.*\).), .*|  src: url(\1.ttf) format('truetype');|' | \
+        sed 's|^  src\: local(.\(.*\).), url.*|  src: url(\1.ttf) format('truetype');|' > fonts/fonts.css
+    rm _fonts.css
 fi
 
 # MATHJAX
