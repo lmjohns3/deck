@@ -1,19 +1,29 @@
 // Put custom presentation styles in this file!
 
-@import 'deck/themes/style/reset'
+@import 'deck/themes/style/_reset.scss'
 
-$font-size: 24px
+$font-size: 32px
 $spacing: 30px
 
-$black:     #111111
+$black:     #000000
 $blackish:  #333333
 $gray:      #888888
 $whiteish:  #dddddd
 $white:     #ffffff
 
+$yellowish: #ffffdd
 $blueish:   #bbddff
 $blue:      #99ccff
 $red:       #cc3333
+
+.deck-container
+  background: $white
+  color: $black
+  font-family: "Source Sans Pro"
+  font-size: $font-size
+  line-height: 1
+  -webkit-font-smoothing: antialiased
+  -webkit-text-size-adjust: 100%
 
 code
   font-family: "Source Code Pro"
@@ -22,15 +32,34 @@ pre, ol, ul, li, p, div.video
   margin: $spacing $spacing 0 $spacing
   padding: 0
 
+li
+  text-indent: -1.5em
+  padding-left: 0.5em
+
+  &:before // this sets the default bullet appearance
+    content: '\2605' // ★
+    margin: 0 0.5em 0 0
+
 h1, h2, h3, h4, h5, h6
+  font-family: "Source Serif Pro"
   margin: 0
   padding: $spacing
   background: $blue
   color: $blackish
 
+h1
+  top: 0 !important
+  position: relative !important
+  transform: none !important
+  padding: $spacing !important
+  margin-bottom: $spacing !important
+  border-bottom: solid $blue 4px
+
 h2
-  padding-bottom: $spacing / 3
-  border: none
+  padding-top: 0.6 * $spacing
+  padding-bottom: 0.6 * $spacing
+  margin-bottom: 0.5 * $spacing
+  border-bottom: solid $blue 3px
 
 pre
   $pre-bg: #f8f8f8  // for the github highlight.js theme.
@@ -40,10 +69,6 @@ pre
 
 ol, ul
   list-style: none
-
-  li:before // this sets the default bullet appearance
-    content: '\2605' // ★
-    margin: 0 0.5em 0 0
 
   li.bullet:before, li.dot:before
     content: '\2022' // •
@@ -80,41 +105,42 @@ a, a:hover, a:focus, a:active, a:visited
 a:hover, a:focus
   text-decoration: underline
 
-.deck-container
-  background: $white
-  color: $black
-  font-family: "Source Sans Pro"
-  font-size: $font-size
-  line-height: 1
-  -webkit-font-smoothing: antialiased
-  -webkit-text-size-adjust: 100%
-
 .deck-status
   font-size: 0.6666em
 
 .deck-menu
   .slide
     background: $whiteish
+    border: solid 1px $gray
   .deck-current
-    background: $blueish
+    background: $yellowish
 
 .no-touch .deck-container.deck-menu .slide:hover
-  background: $blueish
+  background: $yellowish
 
 .video
   iframe
-    height: 360px
-    width: 480px
+    height: 450px
+    width: 600px
 
 .video.sixteen-x-nine
   iframe
-    width: 640px
+    width: 800px
+
+.spaced
+  margin-top: 2 * $spacing
 
 .centered
   text-align: center
 
 .rounded
   border-radius: $spacing / 3
+
+.pull-left
+  float: left
+
+.pull-right
+  float: right
 
 .cite
   font-size: 0.9em
@@ -125,18 +151,9 @@ a:hover, a:focus
     content: ']'
 
 #title
-  h1
-    top: 0
-    position: relative
-    padding: $spacing
-    transform: none
-
   h2, h3
     border: none
     background: none
 
   h3
     padding-top: 0
-
-  #venue
-    padding-top: $spacing
