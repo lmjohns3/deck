@@ -75,7 +75,7 @@ fi
 if [[ "$install" = *" fonts="* ]]
 then
     echo "Installing fonts ..."
-    [[ "$install" = "*fonts=pt*" ]] && fn=$PTFONTS || fn=$SOURCEFONTS
+    [[ "$install" = *"fonts=pt"* ]] && fn=$PTFONTS || fn=$SOURCEFONTS
     mkdir -p fonts
     curl -sSL "http://fonts.googleapis.com/css?family=$fn" > _fonts.css
     grep src _fonts.css | \
