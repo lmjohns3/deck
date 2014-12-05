@@ -1,8 +1,8 @@
 #!/bin/bash
 
 HIGHLIGHTCDN="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3"
-SOURCEFONTS="Source+Sans+Pro:400,700,400italic,700italic|Source+Code+Pro:400,700|Source+Serif+Pro:400,700,400italic,700italic"
-PTFONTS="PT+Sans:400,700,400italic,700italic|PT+Mono:400,700|PT+Serif:400,700,400italic,700italic"
+SOURCEFONTS="Source+Sans+Pro:600,900,600italic,900italic|Source+Code+Pro:500,900|Source+Serif+Pro:400,600,700"
+PTFONTS="PT+Sans:400,700,400italic,700italic|PT+Mono|PT+Serif:400,700,400italic,700italic"
 
 usage() {
     cat <<_EOF
