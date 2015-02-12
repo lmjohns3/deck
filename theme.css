@@ -1,6 +1,5 @@
-@charset "UTF-8";
-/* Resets and base styles from HTML5 Boilerplate */
 @import url(highlight/github.min.css);
+/* Resets and base styles from HTML5 Boilerplate */
 div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
@@ -67,7 +66,7 @@ pre, code, kbd, samp {
   font-family: monospace, sans-serif; }
 
 a {
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
   a:hover, a:active {
     outline: none; }
 
@@ -135,7 +134,7 @@ button {
   overflow: visible; }
 
 select, input, textarea {
-  color: #444; }
+  color: #444444; }
 
 a {
   color: #607890; }
@@ -238,17 +237,22 @@ li {
   box-sizing: border-box;
   width: 100%; }
 
+pre {
+  padding: 15px;
+  border: solid 1px #dfdfdf;
+  background: #f8f8f8; }
+
 .deck-container {
-  background: #ffffff;
-  color: #000000;
-  font-family: "Source Sans Pro", sans-serif;
+  background: white;
+  color: black;
+  font-family: "PT Sans", sans-serif;
   font-size: 32px;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%; }
 
 code {
-  font-family: "Source Code Pro", monospace; }
+  font-family: "PT Mono", monospace; }
 
 pre, ol, ul, li, p, div.video {
   margin: 30px 30px 0 30px;
@@ -258,60 +262,53 @@ li {
   text-indent: -1.5em;
   padding-left: 0.5em; }
   li:before {
-    content: "★";
+    content: "\2605";
     margin: 0 0.5em 0 0; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Source Serif Pro", serif;
+  font-family: "PT Serif", serif;
   margin: 0;
   padding: 30px;
-  background: #99ccff;
-  color: #333333; }
+  border-bottom: solid 4px #bbddff;
+  color: #111111; }
 
 h1 {
   top: 0 !important;
   position: relative !important;
   transform: none !important;
   padding: 30px !important;
-  margin-bottom: 30px !important;
-  border-bottom: solid #99ccff 4px; }
+  margin-bottom: 30px !important; }
 
 h2 {
   padding-top: 18px;
   padding-bottom: 18px;
-  margin-bottom: 15px;
-  border-bottom: solid #99ccff 3px; }
-
-pre {
-  padding: 15px;
-  border: solid 1px #dfdfdf;
-  background: #f8f8f8; }
+  margin-bottom: 15px; }
 
 ol, ul {
   list-style: none; }
   ol li.bullet:before, ol li.dot:before, ul li.bullet:before, ul li.dot:before {
-    content: "•"; }
+    content: "\2022"; }
   ol li.star:before, ul li.star:before {
-    content: "★"; }
+    content: "\2605"; }
   ol li.section:before, ul li.section:before {
-    content: "§"; }
+    content: "\00a7"; }
   ol li.check:before, ol li.yes:before, ul li.check:before, ul li.yes:before {
-    content: "✔"; }
+    content: "\2714"; }
   ol li.x:before, ol li.no:before, ul li.x:before, ul li.no:before {
-    content: "✘"; }
+    content: "\2718"; }
   ol li.hand:before, ol li.index:before, ol li.fist:before, ul li.hand:before, ul li.index:before, ul li.fist:before {
-    content: "☞"; }
+    content: "\261e"; }
   ol li.asterism:before, ol li.stars:before, ul li.asterism:before, ul li.stars:before {
-    content: "⁂"; }
+    content: "\2042"; }
   ol li.fleuron:before, ol li.flower:before, ul li.fleuron:before, ul li.flower:before {
-    content: "❧"; }
+    content: "\2767"; }
 
 ::selection {
-  background: #cc3333;
-  color: #ffffff; }
+  background: red;
+  color: white; }
 
 a, a:hover, a:focus, a:active, a:visited {
-  color: #99ccff;
+  color: #336699;
   text-decoration: none; }
 
 a:hover, a:focus {
@@ -353,7 +350,7 @@ a:hover, a:focus {
 
 .cite {
   font-size: 0.9em;
-  color: #333333; }
+  color: #336633; }
   .cite:before {
     content: "["; }
   .cite:after {
@@ -364,5 +361,3 @@ a:hover, a:focus {
   background: none; }
 #title h3 {
   padding-top: 0; }
-
-/*# sourceMappingURL=theme.css.map */
