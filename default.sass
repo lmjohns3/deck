@@ -1,0 +1,139 @@
+@import 'deck/deck/themes/style/_reset.scss'
+@import 'github.sass'
+
+$font-size: 32px
+$spacing: 30px
+
+.deck-container
+  background: #ffffff
+  color: #000000
+  font-family: "PT Sans", sans-serif
+  font-size: $font-size
+  line-height: 1
+  -webkit-font-smoothing: antialiased
+  -webkit-text-size-adjust: 100%
+
+code
+  font-family: "PT Mono", monospace
+
+pre, ol, ul, li, p, div.video
+  margin: $spacing $spacing 0 $spacing
+  padding: 0
+
+li
+  text-indent: -1.5em
+  padding-left: 0.5em
+
+  &:before // this sets the default bullet appearance
+    content: '\2605' // ★
+    margin: 0 0.5em 0 0
+
+h1, h2, h3, h4, h5, h6
+  font-family: "PT Serif", serif
+  margin: 0
+  padding: $spacing
+  border-bottom: solid 4px #bbddff
+  color: #111111
+
+h1
+  top: 0 !important
+  position: relative !important
+  transform: none !important
+  padding: $spacing !important
+  margin-bottom: $spacing !important
+
+h2
+  padding-top: 0.6 * $spacing
+  padding-bottom: 0.6 * $spacing
+  margin-bottom: 0.5 * $spacing
+
+ol, ul
+  list-style: none
+
+  li.bullet:before, li.dot:before
+    content: '\2022' // •
+
+  li.star:before
+    content: '\2605' // ★
+
+  li.section:before
+    content: '\00a7' // §
+
+  li.check:before, li.yes:before
+    content: '\2714' // ✔
+
+  li.x:before, li.no:before
+    content: '\2718' // ✘
+
+  li.hand:before, li.index:before, li.fist:before
+    content: '\261e' // ☞
+
+  li.asterism:before, li.stars:before
+    content: '\2042' // ⁂
+
+  li.fleuron:before, li.flower:before
+    content: '\2767' // ❧
+
+::selection
+  background: #ff0000
+  color: #ffffff
+
+a, a:hover, a:focus, a:active, a:visited
+  color: #336699
+  text-decoration: none
+
+a:hover, a:focus
+  text-decoration: underline
+
+.deck-status
+  font-size: 0.6666em
+
+.deck-menu
+  .slide
+    background: #dddddd
+    border: solid 1px #888888
+  .deck-current
+    background: #ffffdd
+
+.no-touch .deck-container.deck-menu .slide:hover
+  background: #ffffdd
+
+.video
+  iframe
+    height: 450px
+    width: 600px
+
+.video.video-16x9
+  iframe
+    width: 800px
+
+.spaced
+  margin-top: 2 * $spacing
+
+.centered
+  text-align: center
+
+.rounded
+  border-radius: $spacing / 3
+
+.pull-left
+  float: left
+
+.pull-right
+  float: right
+
+.cite
+  font-size: 0.9em
+  color: #336633
+  &:before
+    content: '['
+  &:after
+    content: ']'
+
+#title
+  h2, h3
+    border: none
+    background: none
+
+  h3
+    padding-top: 0
