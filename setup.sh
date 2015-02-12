@@ -115,14 +115,14 @@ then
     mkdir -p highlight
     curl -sSL "${HIGHLIGHTCDN}/highlight.min.js" > highlight/highlight.min.js
     curl -sSL "${HIGHLIGHTCDN}/styles/$theme.min.css" > highlight/$theme.min.css
-    echo "@import 'highlight/$theme.min.css'" >> theme.sass
+    echo "You may need to add to your SCSS: @import 'highlight/$theme.min.css'"
 fi
 if [[ "$install" = *" hljslangs"* ]]
 then
     for lang in $(echo "$install" | sed "s|.* hljslangs=\([^=]*\)= .*|\1|")
     do
         echo "- adding $lang"
-        echo "script(src='highlight/$lang.min.js')" >> slides.jade
+        echo "You may need to add to your Jade: script(src='highlight/$lang.min.js')"
         curl -sSL "${HIGHLIGHTCDN}/languages/$lang.min.js" > highlight/$lang.min.js
     done
 fi
