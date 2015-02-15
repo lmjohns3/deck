@@ -242,21 +242,25 @@ pre {
   border: solid 1px #dfdfdf;
   background: #f8f8f8; }
 
+.csstransforms .vcenter {
+  padding: 0; }
+
 .deck-container {
   background: white;
   color: black;
-  font-family: "PT Sans", sans-serif;
-  font-size: 32px;
+  font-family: "Source Serif Pro", sans-serif;
+  font-size: 48px;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%; }
 
 code {
-  font-family: "PT Mono", monospace; }
+  font-family: "Source Code Pro", monospace; }
 
 pre, ol, ul, li, p, div.video {
-  margin: 30px 30px 0 30px;
-  padding: 0; }
+  margin: 0 48px;
+  padding: 0 0 48px 0;
+  line-height: 1; }
 
 li {
   text-indent: -1.5em;
@@ -266,25 +270,28 @@ li {
     margin: 0 0.5em 0 0; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Serif", serif;
+  font-family: "Source Serif Pro", serif;
+  font-weight: bold;
   margin: 0;
-  padding: 30px;
-  border-bottom: solid 4px #bbddff;
+  padding: 24px 48px;
+  border-bottom: none;
   color: #111111; }
 
-h1 {
-  top: 0 !important;
-  position: relative !important;
-  transform: none !important;
-  padding: 30px !important;
-  margin-bottom: 30px !important; }
+h1, .vcenter h1 {
+  font-size: 96px;
+  padding: 48px;
+  margin-bottom: 48px; }
 
 h2 {
-  padding-top: 18px;
-  padding-bottom: 18px;
-  margin-bottom: 15px; }
+  font-size: 72px;
+  border-bottom: solid 4px #bbddff;
+  margin-bottom: 48px; }
+
+h3 {
+  font-size: 57.6px; }
 
 ol, ul {
+  margin-left: 48px;
   list-style: none; }
   ol li.bullet:before, ol li.dot:before, ul li.bullet:before, ul li.dot:before {
     content: "\2022"; }
@@ -334,13 +341,13 @@ a:hover, a:focus {
   width: 800px; }
 
 .spaced {
-  margin-top: 60px; }
+  margin-top: 48px; }
 
 .centered {
   text-align: center; }
 
 .rounded {
-  border-radius: 10px; }
+  border-radius: 8px; }
 
 .pull-left {
   float: left; }
@@ -358,6 +365,6 @@ a:hover, a:focus {
 
 #title h2, #title h3 {
   border: none;
-  background: none; }
-#title h3 {
-  padding-top: 0; }
+  background: none;
+  margin: 0;
+  padding: 24px; }
