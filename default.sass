@@ -1,8 +1,8 @@
 @import 'deck/themes/style/_reset.scss'
 @import 'github.sass'
 
-$font-size: 48px
-$spacing: 24px
+html
+  font-size: 48px
 
 .csstransforms .vcenter
   padding: 0
@@ -11,7 +11,7 @@ $spacing: 24px
   background: #ffffff
   color: #000000
   font-family: "Source Serif Pro", sans-serif
-  font-size: $font-size
+  font-size: 1rem
   line-height: 1
   -webkit-font-smoothing: antialiased
   -webkit-text-size-adjust: 100%
@@ -20,41 +20,41 @@ code
   font-family: "Source Code Pro", monospace
 
 pre, ol, ul, li, p, div.video
-  margin: 0 (2 * $spacing)
-  padding: 0 0 $font-size 0
+  margin: 0 1rem
+  padding: 0 0 1rem 0
   line-height: 1
 
 li
-  text-indent: -1.5em
-  padding-left: 0.5em
+  text-indent: -1.5rem
+  padding-left: 0.5rem
 
   &:before // this sets the default bullet appearance
     content: '\2605' // ★
-    margin: 0 0.5em 0 0
+    margin: 0 0.5rem 0 0
 
 h1, h2, h3, h4, h5, h6
   font-family: "Source Serif Pro", serif
   font-weight: bold
   margin: 0
-  padding: $spacing (2 * $spacing)
+  padding: 0.5rem 1rem
   border-bottom: none
   color: #111111
 
 h1, .vcenter h1
-  font-size: 2 * $font-size
-  padding: $font-size
-  margin-bottom: $font-size
+  font-size: 2rem
+  padding: 1rem
+  margin-bottom: 1rem
 
 h2
-  font-size: 1.5 * $font-size
+  font-size: 1.5rem
   border-bottom: solid 4px #bbddff
-  margin-bottom: $font-size
+  margin-bottom: 1rem
 
 h3
-  font-size: 1.2 * $font-size
+  font-size: 1.2rem
 
 ol, ul
-  margin-left: 2 * $spacing
+  margin-left: 1rem
   list-style: none
 
   li.bullet:before, li.dot:before
@@ -114,13 +114,19 @@ a:hover, a:focus
     width: 800px
 
 .spaced
-  margin-top: 2 * $spacing
+  margin-top: 1rem
 
 .centered
   text-align: center
 
 .rounded
-  border-radius: $spacing / 3
+  border-radius: 0.2rem
+
+.clear
+  clear: both
+
+.nospace
+  margin-top: -1rem
 
 .pull-left
   float: left
@@ -141,4 +147,4 @@ a:hover, a:focus
     border: none
     background: none
     margin: 0
-    padding: $spacing
+    padding: 0.5rem
