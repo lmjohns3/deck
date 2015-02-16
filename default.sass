@@ -24,14 +24,6 @@ pre, ol, ul, li, p, div.video
   padding: 0 0 1rem 0
   line-height: 1
 
-li
-  text-indent: -1.5rem
-  padding-left: 0.5rem
-
-  &:before // this sets the default bullet appearance
-    content: '\2605' // ★
-    margin: 0 0.5rem 0 0
-
 h1, h2, h3, h4, h5, h6
   font-family: "Source Serif Pro", serif
   font-weight: bold
@@ -54,8 +46,18 @@ h3
   font-size: 1.2rem
 
 ol, ul
-  margin-left: 1rem
+  margin-left: 1.5rem
+
+ul
   list-style: none
+
+  li
+    text-indent: -1.5rem
+
+    &:before // this sets the default bullet appearance
+      content: '\2605' // ★
+      margin: 0 0.5rem 0 0
+      width: 1rem
 
   li.bullet:before, li.dot:before
     content: '\2022' // •
