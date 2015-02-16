@@ -242,6 +242,9 @@ pre {
   border: solid 1px #dfdfdf;
   background: #f8f8f8; }
 
+html {
+  font-size: 48px; }
+
 .csstransforms .vcenter {
   padding: 0; }
 
@@ -249,7 +252,7 @@ pre {
   background: white;
   color: black;
   font-family: "Source Serif Pro", sans-serif;
-  font-size: 48px;
+  font-size: 1rem;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%; }
@@ -258,40 +261,40 @@ code {
   font-family: "Source Code Pro", monospace; }
 
 pre, ol, ul, li, p, div.video {
-  margin: 0 48px;
-  padding: 0 0 48px 0;
+  margin: 0 1rem;
+  padding: 0 0 1rem 0;
   line-height: 1; }
 
 li {
-  text-indent: -1.5em;
-  padding-left: 0.5em; }
+  text-indent: -1.5rem;
+  padding-left: 0.5rem; }
   li:before {
     content: "\2605";
-    margin: 0 0.5em 0 0; }
+    margin: 0 0.5rem 0 0; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Source Serif Pro", serif;
   font-weight: bold;
   margin: 0;
-  padding: 24px 48px;
+  padding: 0.5rem 1rem;
   border-bottom: none;
   color: #111111; }
 
 h1, .vcenter h1 {
-  font-size: 96px;
-  padding: 48px;
-  margin-bottom: 48px; }
+  font-size: 2rem;
+  padding: 1rem;
+  margin-bottom: 1rem; }
 
 h2 {
-  font-size: 72px;
+  font-size: 1.5rem;
   border-bottom: solid 4px #bbddff;
-  margin-bottom: 48px; }
+  margin-bottom: 1rem; }
 
 h3 {
-  font-size: 57.6px; }
+  font-size: 1.2rem; }
 
 ol, ul {
-  margin-left: 48px;
+  margin-left: 1rem;
   list-style: none; }
   ol li.bullet:before, ol li.dot:before, ul li.bullet:before, ul li.dot:before {
     content: "\2022"; }
@@ -311,7 +314,7 @@ ol, ul {
     content: "\2767"; }
 
 ::selection {
-  background: red;
+  background: #d62728;
   color: white; }
 
 a, a:hover, a:focus, a:active, a:visited {
@@ -322,16 +325,15 @@ a:hover, a:focus {
   text-decoration: underline; }
 
 .deck-status {
-  font-size: 0.6666em; }
+  font-size: 0.5rem; }
 
 .deck-menu .slide {
-  background: #dddddd;
-  border: solid 1px #888888; }
+  border: solid 3px #888888; }
 .deck-menu .deck-current {
-  background: #ffffdd; }
+  border-color: #d62728; }
 
 .no-touch .deck-container.deck-menu .slide:hover {
-  background: #ffffdd; }
+  border-color: #e377c2; }
 
 .video iframe {
   height: 450px;
@@ -341,13 +343,19 @@ a:hover, a:focus {
   width: 800px; }
 
 .spaced {
-  margin-top: 48px; }
+  margin-top: 1rem; }
 
 .centered {
   text-align: center; }
 
 .rounded {
-  border-radius: 8px; }
+  border-radius: 0.2rem; }
+
+.clear {
+  clear: both; }
+
+.nospace {
+  margin-top: -1rem; }
 
 .pull-left {
   float: left; }
@@ -356,8 +364,8 @@ a:hover, a:focus {
   float: right; }
 
 .cite {
-  font-size: 0.9em;
-  color: #336633; }
+  font-size: 0.8em;
+  color: #2ca02c; }
   .cite:before {
     content: "["; }
   .cite:after {
@@ -367,4 +375,4 @@ a:hover, a:focus {
   border: none;
   background: none;
   margin: 0;
-  padding: 24px; }
+  padding: 0.5rem; }
