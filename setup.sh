@@ -1,16 +1,16 @@
 #!/bin/bash
 
 HIGHLIGHTCDN="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3"
-SOURCEFONTS="Source+Sans+Pro:600,900,600italic,900italic|Source+Code+Pro:500,900|Source+Serif+Pro:400,600,700"
-PTFONTS="PT+Sans:400,700,400italic,700italic|PT+Mono|PT+Serif:400,700,400italic,700italic"
+FONTS="Source+Sans+Pro:400,700,400italic,700italic|Source+Code+Pro:400,700|Source+Serif+Pro:400,700|PT+Sans:400,700,400italic,700italic|PT+Mono|PT+Serif:400,700,400italic,700italic|Inconsolata:400,700|Merriweather:400,400italic,700,700italic|Merriweather+Sans:400,400italic,700,700italic"
 
 usage() {
     cat <<_EOF
 setup.sh [-dfm] [-l "A B ..."] [-t STYLE]
 
 Command-line arguments:
+  -b              install mathbox.js
   -d              install deck.js
-  -f {pt,source}  install PT or Source fonts
+  -f              install PT, Source, Merriweather, and Inconsolata fonts
   -l "A B ..."    install nonstandard highlight.js languages A, B, ...
   -m              install mathjax
   -t THEME        install highlight.js with a particular theme, e.g. github
@@ -75,19 +75,16 @@ else
 fi
 
 # FONTS
-if [[ "$install" = *" fonts="* ]]
+if [[ "$install" = *" fonts "* ]]
 then
     echo "Installing fonts ..."
-    [[ "$install" = *"fonts=pt"* ]] && fn=$PTFONTS || fn=$SOURCEFONTS
     mkdir -p fonts
-    curl -sSL "http://fonts.googleapis.com/css?family=$fn" > _fonts.css
-    grep src _fonts.css | \
+    curl -sSL "http://fonts.googleapis.com/css?family=$FONTS" > fonts/_fonts.css
+    grep src fonts/_fonts.css | \
         sed 's|^  src\: local(.*), local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > fonts/\1.ttf|' | \
         sed 's|^  src\: local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > fonts/\1.ttf|' | bash
-    cat _fonts.css | \
-        sed 's|^  src\: local(.*), local(.\(.*\).), .*|  src: url(\1.ttf) format('truetype');|' | \
-        sed 's|^  src\: local(.\(.*\).), url.*|  src: url(\1.ttf) format('truetype');|' >> fonts/fonts.css
-    rm _fonts.css
+    cat fonts/_fonts.css >> fonts/fonts.css
+    rm -f fonts/_fonts.css
 fi
 
 # MATHJAX
