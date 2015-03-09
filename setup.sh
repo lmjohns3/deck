@@ -19,20 +19,23 @@ See https://highlightjs.org/static/test.html for available highlight.js themes.
 
 Example invocation to get going from scratch:
 
-  ./setup.sh -d -m -f source -t github
+  ./setup.sh -bdfm -t github
 
 _EOF
     exit 1
 }
 
 install=""
-while getopts ":df:l:mt:" opt
+while getopts ":bdfl:mt:" opt
 do case $opt in
+   b)
+       install="$install mathbox "
+       ;;
    d)
        install="$install deck "
        ;;
    f)
-       install="$install fonts=$OPTARG "
+       install="$install fonts "
        ;;
    l)
        install="$install hljslangs=${OPTARG}= "
@@ -95,6 +98,16 @@ then
     echo "Unpacking MathJax ..."
     unzip MathJax.zip >/dev/null 2>&1
     mv MathJax-2.4-latest mathjax
+fi
+
+# MATHBOX.JS
+if [[ "$install" = *" mathbox "* ]]
+then
+    echo "Downloading MathBox.js ..."
+    curl -sSL "https://github.com/unconed/MathBox.js/archive/master.zip" > MathBox.zip
+    echo "Unpacking MathBox ..."
+    unzip MathBox.zip >/dev/null 2>&1
+    mv MathBox.js-master mathbox
 fi
 
 # DECK.JS
