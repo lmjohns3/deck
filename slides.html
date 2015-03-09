@@ -10,7 +10,7 @@
     <link rel="stylesheet" media="screen" href="deck.js/extensions/menu/deck.menu.css">
     <link rel="stylesheet" media="screen" href="deck.js/extensions/status/deck.status.css">
     <link rel="stylesheet" media="screen" href="deck.js/themes/transition/fade.css">
-    <link rel="stylesheet" media="screen" href="theme.css">
+    <link rel="stylesheet" media="screen" href="slides.css">
     <link rel="stylesheet" media="print" href="deck.js/core/print.css">
     <script src="deck.js/modernizr.custom.js"></script>
     <title>Presentation</title>
@@ -78,6 +78,8 @@ print s[0]</code></pre>
 <script src="highlight.js/highlight.min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<script>$(function() { $.deck('.slide'); });</script>
+<script>
+  $(function() { $.deck('.slide'); });
+  hljs.initHighlightingOnLoad();
+</script>
 <script src="slides.js"></script>
