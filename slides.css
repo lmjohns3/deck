@@ -250,15 +250,17 @@ body .deck-container {
   background: #ffffff;
   color: #000000; }
   body .deck-container .slide {
-    font-family: "Source Serif Pro", "Merriweather", "PT Serif", Georgia, serif;
+    font-family: "Merriweather", "Source Serif Pro", "PT Serif", Georgia, serif;
     font-size: 1rem;
     line-height: 1;
     -webkit-font-smoothing: subpixel-antialiased;
-    -webkit-text-size-adjust: 100%; }
+    -webkit-text-size-adjust: 100%;
+    word-spacing: 2px;
+    letter-spacing: 0px; }
     body .deck-container .slide code {
       font-family: "Inconsolata", "Source Code Pro", "PT Mono", Consola, monospace; }
     body .deck-container .slide h1, body .deck-container .slide h2, body .deck-container .slide h3, body .deck-container .slide h4, body .deck-container .slide h5, body .deck-container .slide h6 {
-      font-family: "Source Sans Pro", "Merriweather Sans", "PT Sans", sans-serif;
+      font-family: "Merriweather Sans", "Source Sans Pro", "PT Sans", Helvetica, sans-serif;
       font-weight: bold; }
     body .deck-container .slide a, body .deck-container .slide a:hover, body .deck-container .slide a:focus, body .deck-container .slide a:active, body .deck-container .slide a:visited {
       text-decoration: none; }
