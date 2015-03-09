@@ -137,12 +137,16 @@ a:hover, a:focus
   float: right
 
 .cite
-  font-size: 0.8em
+  font-size: 0.7em
   color: #2ca02c
   &:before
     content: '['
   &:after
     content: ']'
+
+img, video, iframe
+  &.pull-left, &.pull-right
+    margin: 0 $size $size
 
 #title
   h2, h3
