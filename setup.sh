@@ -104,7 +104,7 @@ then
     curl -sSL "https://github.com/unconed/MathBox.js/archive/master.zip" > MathBox.zip
     echo "Unpacking MathBox ..."
     unzip MathBox.zip >/dev/null 2>&1
-    mv MathBox.js-master mathbox
+    mv MathBox.js-master mathbox.js
 fi
 
 # DECK.JS
@@ -114,7 +114,7 @@ then
     curl -sSL "https://github.com/imakewebthings/deck.js/archive/latest.zip" > deck.zip
     unzip deck.zip >/dev/null 2>&1
     rm -fr deck
-    mv deck.js-latest deck
+    mv deck.js-latest deck.js
 fi
 
 # HIGHLIGHT.JS
@@ -122,17 +122,17 @@ if [[ "$install" = *" hljs"* ]]
 then
     theme=$(echo "$install" | sed 's|.* hljs=\([^ ]*\) .*|\1|')
     echo "Installing highlight.js ($theme) ..."
-    mkdir -p highlight
-    curl -sSL "${HIGHLIGHTCDN}/highlight.min.js" > highlight/highlight.min.js
-    curl -sSL "${HIGHLIGHTCDN}/styles/$theme.min.css" > highlight/$theme.min.css
-    echo "You may need to add to your SCSS: @import 'highlight/$theme.min.css'"
+    mkdir -p highlight.js
+    curl -sSL "${HIGHLIGHTCDN}/highlight.min.js" > highlight.js/highlight.min.js
+    curl -sSL "${HIGHLIGHTCDN}/styles/$theme.min.css" > highlight.js/$theme.min.css
+    echo "You may need to add to your SCSS: @import 'highlight.js/$theme.min.css'"
 fi
 if [[ "$install" = *" hljslangs"* ]]
 then
     for lang in $(echo "$install" | sed "s|.* hljslangs=\([^=]*\)= .*|\1|")
     do
         echo "- adding $lang"
-        echo "You may need to add to your Jade: script(src='highlight/$lang.min.js')"
-        curl -sSL "${HIGHLIGHTCDN}/languages/$lang.min.js" > highlight/$lang.min.js
+        echo "You may need to add to your Jade: script(src='highlight.js/$lang.min.js')"
+        curl -sSL "${HIGHLIGHTCDN}/languages/$lang.min.js" > highlight.js/$lang.min.js
     done
 fi
