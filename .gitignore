@@ -6,7 +6,7 @@
 
 # stuff that setup.sh downloads
 *.zip
-deck
+deck.js
 fonts
-highlight
+highlight.js
 mathjax
