@@ -1,98 +1,174 @@
 @import 'deck/themes/style/_reset.scss'
 @import 'github.sass'
 
+
+=fonts()
+  font-family: "Merriweather", "Source Serif Pro", "PT Serif", Georgia, serif
+  font-size: 1rem
+  line-height: 1
+  -webkit-font-smoothing: subpixel-antialiased
+  -webkit-text-size-adjust: 100%
+
+  code
+    font-family: "Inconsolata", "Source Code Pro", "PT Mono", Consola, monospace
+
+  h1, h2, h3, h4, h5, h6
+    font-family: "Source Serif Pro", serif
+    font-weight: bold
+
+  a, a:hover, a:focus, a:active, a:visited
+    text-decoration: none
+
+  a:hover, a:focus, a:active
+    text-decoration: underline
+
+  .MathJax
+    font-style: normal
+    -webkit-font-smoothing: subpixel-antialiased
+
+
+=colors()
+  a, a:hover, a:focus, a:active, a:visited
+    color: #336699
+
+  h2
+    border-color: #bbddff
+
+
+=lists()
+  ol, ul
+    margin-left: 1.5rem
+
+  ul
+    list-style: none
+
+    li
+      text-indent: -1.5rem
+
+      &:before // this sets the default bullet appearance
+        content: '\2605' // ★
+        margin: 0 0.5rem 0 0
+        width: 1rem
+
+    li.bullet:before, li.dot:before
+      content: '\2022' // •
+
+    li.star:before
+      content: '\2605' // ★
+
+    li.section:before
+      content: '\00a7' // §
+
+    li.check:before, li.yes:before
+      content: '\2714' // ✔
+
+    li.x:before, li.no:before
+      content: '\2718' // ✘
+
+    li.hand:before, li.index:before, li.fist:before
+      content: '\261e' // ☞
+
+    li.asterism:before, li.stars:before
+      content: '\2042' // ⁂
+
+    li.fleuron:before, li.flower:before
+      content: '\2767' // ❧
+
+
+=sizes()
+  pre, ol, ul, li, p, div.video
+    margin: 0 1rem
+    padding: 0 0 1rem 0
+    line-height: 1
+
+  h1, h2, h3, h4, h5, h6
+    margin: 0
+    padding: 0.5rem 1rem
+    border-bottom: none
+    color: #111111
+
+  h1, .vcenter h1
+    font-size: 2rem
+    padding: 1rem
+    margin-bottom: 1rem
+
+  h2
+    font-size: 1.5rem
+    margin-bottom: 1rem
+    border-bottom: solid 4px
+
+  h3
+    font-size: 1.2rem
+
+  .video
+    iframe
+      height: 450px
+      width: 600px
+
+  .video.video-16x9
+    iframe
+      width: 800px
+
+  .spaced
+    margin-top: 1rem
+
+  .nospace
+    margin-top: -1rem
+
+  img, video, iframe
+    &.pull-left, &.pull-right
+      margin: 0 $size $size
+
+
+=utils()
+  .centered
+    text-align: center
+
+  .rounded
+    border-radius: 0.2rem
+
+  .clear
+    clear: both
+
+  .pull-left
+    float: left
+
+  .pull-right
+    float: right
+
+
+=layout()
+  &.#title
+    h2, h3
+      border: none
+      background: none
+      margin: 0
+      padding: 0.5rem
+
+
 html
   font-size: 48px
 
-.csstransforms .vcenter
-  padding: 0
+body
+  .deck-container
+    background: #ffffff
+    color: #000000
 
-.deck-container
-  background: #ffffff
-  color: #000000
-  font-family: "Source Serif Pro", sans-serif
-  font-size: 1rem
-  line-height: 1
-  -webkit-font-smoothing: antialiased
-  -webkit-text-size-adjust: 100%
+    .slide
+      +fonts
+      +colors
+      +sizes
+      +lists
+      +utils
+      +layout
 
-code
-  font-family: "Source Code Pro", monospace
-
-pre, ol, ul, li, p, div.video
-  margin: 0 1rem
-  padding: 0 0 1rem 0
-  line-height: 1
-
-h1, h2, h3, h4, h5, h6
-  font-family: "Source Serif Pro", serif
-  font-weight: bold
-  margin: 0
-  padding: 0.5rem 1rem
-  border-bottom: none
-  color: #111111
-
-h1, .vcenter h1
-  font-size: 2rem
-  padding: 1rem
-  margin-bottom: 1rem
-
-h2
-  font-size: 1.5rem
-  border-bottom: solid 4px #bbddff
-  margin-bottom: 1rem
-
-h3
-  font-size: 1.2rem
-
-ol, ul
-  margin-left: 1.5rem
-
-ul
-  list-style: none
-
-  li
-    text-indent: -1.5rem
-
-    &:before // this sets the default bullet appearance
-      content: '\2605' // ★
-      margin: 0 0.5rem 0 0
-      width: 1rem
-
-  li.bullet:before, li.dot:before
-    content: '\2022' // •
-
-  li.star:before
-    content: '\2605' // ★
-
-  li.section:before
-    content: '\00a7' // §
-
-  li.check:before, li.yes:before
-    content: '\2714' // ✔
-
-  li.x:before, li.no:before
-    content: '\2718' // ✘
-
-  li.hand:before, li.index:before, li.fist:before
-    content: '\261e' // ☞
-
-  li.asterism:before, li.stars:before
-    content: '\2042' // ⁂
-
-  li.fleuron:before, li.flower:before
-    content: '\2767' // ❧
-
-::selection
-  background: #d62728
-  color: #ffffff
-
-a, a:hover, a:focus, a:active, a:visited
-  color: #336699
-  text-decoration: none
-
-a:hover, a:focus
-  text-decoration: underline
+      .cite
+        font-size: 0.7em
+        color: #2ca02c
+        &:before
+          content: '['
+        &:after
+          content: ']'
 
 .deck-status
   font-size: 0.5rem
@@ -106,51 +182,9 @@ a:hover, a:focus
 .no-touch .deck-container.deck-menu .slide:hover
   border-color: #e377c2
 
-.video
-  iframe
-    height: 450px
-    width: 600px
+.csstransforms .vcenter
+  padding: 0
 
-.video.video-16x9
-  iframe
-    width: 800px
-
-.spaced
-  margin-top: 1rem
-
-.centered
-  text-align: center
-
-.rounded
-  border-radius: 0.2rem
-
-.clear
-  clear: both
-
-.nospace
-  margin-top: -1rem
-
-.pull-left
-  float: left
-
-.pull-right
-  float: right
-
-.cite
-  font-size: 0.7em
-  color: #2ca02c
-  &:before
-    content: '['
-  &:after
-    content: ']'
-
-img, video, iframe
-  &.pull-left, &.pull-right
-    margin: 0 $size $size
-
-#title
-  h2, h3
-    border: none
-    background: none
-    margin: 0
-    padding: 0.5rem
+::selection
+  background: #d62728
+  color: #ffffff
