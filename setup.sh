@@ -10,6 +10,7 @@ setup.sh [-dfm] [-l "A B ..."] [-t STYLE]
 Command-line arguments:
   -b              install mathbox.js
   -d              install deck.js
+  -e              install executables (sass, jade, coffee)
   -f              install PT, Source, Merriweather, and Inconsolata fonts
   -l "A B ..."    install nonstandard highlight.js languages A, B, ...
   -m              install mathjax
@@ -33,6 +34,9 @@ do case $opt in
        ;;
    d)
        install="$install deck "
+       ;;
+   e)
+       install="$install execs "
        ;;
    f)
        install="$install fonts "
@@ -58,20 +62,29 @@ if [[ -z "$install" || -n "$1" ]]
 then usage
 fi
 
-if [[ -z "$(which jade)" ]]
+if [[ "$install" = *" execs "* ]]
 then
-    echo "Installing jade (npm package) ..."
-    npm install -g jade
-else
-    echo "Found $(which jade)!"
-fi
-
-if [[ -z "$(which sass)" ]]
-then
-    echo "Installing sass (ruby gem) ..."
-    gem install sass
-else
-    echo "Found $(which sass)!"
+    if [[ -z "$(which jade)" ]]
+    then
+        echo "Installing jade (npm package) ..."
+        npm install -g jade
+    else
+        echo "Found $(which jade)!"
+    fi
+    if [[ -z "$(which coffee)" ]]
+    then
+        echo "Installing coffee (npm package) ..."
+        npm install -g coffee-script
+    else
+        echo "Found $(which coffee)!"
+    fi
+    if [[ -z "$(which sass)" ]]
+    then
+        echo "Installing sass (ruby gem) ..."
+        gem install sass
+    else
+        echo "Found $(which sass)!"
+    fi
 fi
 
 # FONTS
