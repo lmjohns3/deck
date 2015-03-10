@@ -87,65 +87,79 @@ then
     fi
 fi
 
+mkdir -p local
+
 # FONTS
 if [[ "$install" = *" fonts "* ]]
 then
     echo "Installing fonts ..."
-    mkdir -p fonts
-    curl -sSL "http://fonts.googleapis.com/css?family=$FONTS" > fonts/_fonts.css
-    grep src fonts/_fonts.css | \
+    mkdir -p local/fonts
+    curl -sSL "http://fonts.googleapis.com/css?family=$FONTS" > local/fonts/_fonts.css
+    grep src local/fonts/fonts.css | \
         sed 's|^  src\: local(.*), local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > fonts/\1.ttf|' | \
         sed 's|^  src\: local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > fonts/\1.ttf|' | bash
-    cat fonts/_fonts.css >> fonts/fonts.css
-    rm -f fonts/_fonts.css
 fi
 
 # MATHJAX
 if [[ "$install" = *" mathjax "* ]]
 then
-    echo "Downloading MathJax ..."
-    curl -sSL "https://github.com/mathjax/MathJax/archive/v2.4-latest.zip" > MathJax.zip
-    echo "Unpacking MathJax ..."
-    unzip MathJax.zip >/dev/null 2>&1
-    mv MathJax-2.4-latest mathjax
+    (
+        cd local
+        echo "Downloading MathJax ..."
+        curl -sSL "https://github.com/mathjax/MathJax/archive/v2.4-latest.zip" > mathjax.zip
+        echo "Unpacking MathJax ..."
+        unzip mathjax.zip >/dev/null 2>&1
+        mv MathJax-2.4-latest mathjax
+    )
 fi
 
 # MATHBOX.JS
 if [[ "$install" = *" mathbox "* ]]
 then
-    echo "Downloading MathBox.js ..."
-    curl -sSL "https://github.com/unconed/MathBox.js/archive/master.zip" > MathBox.zip
-    echo "Unpacking MathBox ..."
-    unzip MathBox.zip >/dev/null 2>&1
-    mv MathBox.js-master mathbox.js
+    (
+        cd local
+        echo "Downloading MathBox.js ..."
+        curl -sSL "https://github.com/unconed/MathBox.js/archive/master.zip" > mathbox.zip
+        echo "Unpacking MathBox ..."
+        unzip mathbox.zip >/dev/null 2>&1
+        mv MathBox.js-master mathbox.js
+    )
 fi
 
 # DECK.JS
 if [[ "$install" = *" deck "* ]]
 then
-    echo "Installing deck.js ..."
-    curl -sSL "https://github.com/imakewebthings/deck.js/archive/latest.zip" > deck.zip
-    unzip deck.zip >/dev/null 2>&1
-    rm -fr deck
-    mv deck.js-latest deck.js
+    (
+        cd local
+        echo "Installing deck.js ..."
+        curl -sSL "https://github.com/imakewebthings/deck.js/archive/latest.zip" > deck.zip
+        unzip deck.zip >/dev/null 2>&1
+        mv deck.js-latest deck.js
+    )
 fi
 
 # HIGHLIGHT.JS
 if [[ "$install" = *" hljs"* ]]
 then
-    theme=$(echo "$install" | sed 's|.* hljs=\([^ ]*\) .*|\1|')
-    echo "Installing highlight.js ($theme) ..."
-    mkdir -p highlight.js
-    curl -sSL "${HIGHLIGHTCDN}/highlight.min.js" > highlight.js/highlight.min.js
-    curl -sSL "${HIGHLIGHTCDN}/styles/$theme.min.css" > highlight.js/$theme.min.css
-    echo "You may need to add to your SCSS: @import 'highlight.js/$theme.min.css'"
+    (
+        cd local
+        theme=$(echo "$install" | sed 's|.* hljs=\([^ ]*\) .*|\1|')
+        echo "Installing highlight.js ($theme) ..."
+        mkdir -p highlight.js
+        curl -sSL "${HIGHLIGHTCDN}/highlight.min.js" > highlight.js/highlight.min.js
+        curl -sSL "${HIGHLIGHTCDN}/styles/$theme.min.css" > highlight.js/$theme.min.css
+        echo "You may need to add to your SCSS: @import 'highlight.js/$theme.min.css'"
+    )
 fi
 if [[ "$install" = *" hljslangs"* ]]
 then
-    for lang in $(echo "$install" | sed "s|.* hljslangs=\([^=]*\)= .*|\1|")
-    do
-        echo "- adding $lang"
-        echo "You may need to add to your Jade: script(src='highlight.js/$lang.min.js')"
-        curl -sSL "${HIGHLIGHTCDN}/languages/$lang.min.js" > highlight.js/$lang.min.js
-    done
+    (
+        cd local
+        for lang in $(echo "$install" | sed "s|.* hljslangs=\([^=]*\)= .*|\1|")
+        do
+            echo "- adding $lang"
+            echo "You may need to add to your Jade: script(src='highlight.js/$lang.min.js')"
+            curl -sSL "${HIGHLIGHTCDN}/languages/$lang.min.js" > highlight.js/$lang.min.js
+        done
+    )
 fi
