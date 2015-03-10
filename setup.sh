@@ -120,9 +120,12 @@ then
         cd local
         echo "Downloading MathBox.js ..."
         curl -sSL "https://github.com/unconed/MathBox.js/archive/master.zip" > mathbox.zip
+        curl -sSL "https://github.com/unconed/ThreeRTT.js/archive/master.zip" > threertt.zip
         echo "Unpacking MathBox ..."
         unzip mathbox.zip >/dev/null 2>&1
         mv MathBox.js-master mathbox.js
+        unzip threertt.zip >/dev/null 2>&1
+        mv ThreeRTT.js-master threertt.js
     )
 fi
 
