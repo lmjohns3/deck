@@ -5,9 +5,4 @@
 .sass-cache
 
 # stuff that setup.sh downloads
-*.zip
-fonts
-deck.js
-highlight.js
-mathbox.js
-mathjax
+local/
