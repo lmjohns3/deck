@@ -1,4 +1,7 @@
 #!/bin/bash
 
-jade --pretty --watch *.jade &
-sass --watch *.sass
+jade --pretty .
+sass --update .
+coffee -c .
+
+python -m http.server 8080
