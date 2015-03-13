@@ -1,6 +1,10 @@
 @import 'reset'
 @import 'github'
 
+.slide
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  width: 100%
 
 =fonts()
   font-family: "Merriweather", "Source Serif Pro", "PT Serif", Georgia, serif
@@ -126,6 +130,9 @@
 =utils()
   .centered
     text-align: center
+    & *
+      margin-left: auto
+      margin-right: auto
 
   .rounded
     border-radius: 0.2rem

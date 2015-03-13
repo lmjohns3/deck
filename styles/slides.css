@@ -61,6 +61,11 @@ select, input, textarea, button {
 pre, code, kbd, samp {
   font-family: monospace, sans-serif; }
 
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
 ul, ol {
   margin-left: 2em;
   vertical-align: top; }
@@ -133,10 +138,19 @@ a {
   a:link {
     -webkit-tap-highlight-color: #fff; }
 
+img, iframe, video {
+  display: block;
+  max-width: 100%; }
+
 body .deck-container .slide pre {
   padding: 15px;
   border: solid 1px #dfdfdf;
   background: #f8f8f8; }
+
+.slide {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%; }
 
 html {
   font-size: 48px; }
@@ -227,6 +241,9 @@ body .deck-container {
         content: "❧"; }
     body .deck-container .slide .centered {
       text-align: center; }
+      body .deck-container .slide .centered * {
+        margin-left: auto;
+        margin-right: auto; }
     body .deck-container .slide .rounded {
       border-radius: 0.2rem; }
     body .deck-container .slide .clear {

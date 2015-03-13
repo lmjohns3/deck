@@ -59,6 +59,11 @@ select, input, textarea, button
 pre, code, kbd, samp
   font-family: monospace, sans-serif
 
+pre
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+
 ul, ol
   margin-left: 2em
   vertical-align: top
@@ -130,3 +135,8 @@ a
     color: #036
   &:link
     -webkit-tap-highlight-color: #fff
+
+img, iframe, video
+  display: block
+  max-width: 100%
+
