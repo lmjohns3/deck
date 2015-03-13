@@ -24,7 +24,8 @@ html
           h1 Presentation
           h2#author Author
           h3#affiliation Affiliation
-          h3#venue.spaced Venue, Date
+          h3#venue Venue
+          h3#date Date
 
       section.slide
         h2 Content
@@ -55,7 +56,19 @@ html
         h2 Video Example
         p Here is a video (internet required to view):
         .video.centered
-          iframe(src="http://www.youtube.com/embed/epUk3T2Kfno?enablejsapi=1&autohide=1&rel=0", frameborder="0", allowfullscreen)
+          iframe(class="autoplay", src="http://www.youtube.com/embed/epUk3T2Kfno?enablejsapi=1&autohide=1&rel=0", frameborder="0", allowfullscreen)
+
+      section.slide
+        h2 Mathbox Example
+        .centered
+          iframe(src="mathbox/mathbox.html#example", frameborder="0")
+        .slide
+        .slide
+        .slide
+        .slide
+        .slide
+        .slide
+        .slide
 
       // END SLIDES
 

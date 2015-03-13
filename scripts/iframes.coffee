@@ -1,12 +1,12 @@
 # Code for pre-loading and post-unloading iframes. Most of this is taken from
-# from Steven Wittens (@unconed): https://github.com/unconed/fullfrontal, but
-# I've separated out the iframe handling from interactions with mathbox.
+# Steven Wittens (@unconed): https://github.com/unconed/fullfrontal, but I've
+# separated out the iframe handling from interactions with mathbox, using some
+# really kludgy global variables.
 
 window.slides or= {}
 window.slides.transition or= 500
 window.slides.$visibleIframes = null
-
-$iframeIndex = {}
+window.slides.$iframeIndex = {}
 
 
 disableIframe = (iframe) ->
@@ -49,10 +49,11 @@ changeSlide = (e, from, to) ->
   ), slides.transition / 2
 
   # Preload nearby iframes.
-  $iframeIndex[to].forEach (iframe) -> enableIframe(iframe)
+  slides.$iframeIndex[to].forEach (iframe) ->
+    setTimeout (-> enableIframe(iframe)), slides.transition / 2
 
   # Unload non-nearby iframes.
-  $('iframe').not($iframeIndex[to]).each ->
+  $('iframe').not(slides.$iframeIndex[to]).each ->
     iframe = @
     setTimeout (-> disableIframe(iframe)), slides.transition / 2
 
@@ -65,8 +66,8 @@ $ ->
     $this = $parents if $parents.length
     $iframes = $this.find('iframe')
     [i-1, i, i+1].forEach (i) ->
-      $iframeIndex[i] or= []
-      $iframes.each -> $iframeIndex[i].push @
+      slides.$iframeIndex[i] or= []
+      $iframes.each -> slides.$iframeIndex[i].push @
 
   # Disable all iframes at first.
   $('iframe').each -> disableIframe(@)
