@@ -1,7 +1,13 @@
+TRANSITION = 300
+$IFRAME_INDEX = {}
+$visibleIframes = null
+
+
 # Go to specific step
 mathboxGo = (iframe, step) ->
   return unless iframe.contentWindow
   iframe.contentWindow.postMessage { mbgo: step }, '*'
+
 
 # Set speed
 mathboxSpeed = (iframe, speed) ->
@@ -12,30 +18,40 @@ mathboxSpeed = (iframe, speed) ->
 slomo = (e) ->
   $('body')[if e.shiftKey then 'addClass' else 'removeClass']('slomo')
   speed = if e.shiftKey then .2 else 1
-  return unless slides.$visibleIframes
-  slides.$visibleIframes.each -> mathboxSpeed(@, speed)
+  return unless $visibleIframes
+  $visibleIframes.each -> mathboxSpeed(@, speed)
 
 
 changeSlide = (e, from, to) ->
   $subslide = $.deck('getSlide', to)
   $parents = $subslide.parents('.slide')
-  $topslide = if $parents.length then $parents else $subslide
+  $slide = if $parents.length then $parents else $subslide
 
-  step = $topslide.find('.slide').index($subslide) + 2
+  $visibleIframes = $slide.find('iframe')
 
   # Sync up iframe mathboxes to correct step
-  slides.$visibleIframes.each -> mathboxGo(@, step)
+  step = $slide.find('.slide').index($subslide) + 2
+  $visibleIframes.each -> mathboxGo(@, step)
 
   # Pre-load iframes (but allow time for current transition)
   whichEnd = if to > from then 1 else -1
-  slides.$iframeIndex[to].forEach (iframe) ->
+  $IFRAME_INDEX[to].forEach (iframe) ->
     setTimeout (->
       iframe.onload = ->
         iframe.onload = null
         mathboxGo(iframe, step)
-    ), slides.transition
+    ), TRANSITION
 
 
 $ ->
+  # Build index of which iframes are active per slide
+  $('.slide').each (i) ->
+    $this = $(@)
+    $parents = $this.parents('.slide')
+    $this = $parents if $parents.length
+    [i-1, i, i+1].forEach (i) ->
+      $IFRAME_INDEX[i] or= []
+      $this.find('iframe').each -> $IFRAME_INDEX[i].push @
+
   $(document).keydown(slomo).keyup(slomo)
   $(document).bind 'deck.change', changeSlide

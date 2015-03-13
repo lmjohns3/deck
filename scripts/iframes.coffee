@@ -1,12 +1,10 @@
 # Code for pre-loading and post-unloading iframes. Most of this is taken from
 # Steven Wittens (@unconed): https://github.com/unconed/fullfrontal, but I've
-# separated out the iframe handling from interactions with mathbox, using some
-# really kludgy global variables.
+# tried to separate out the iframe handling from interactions with mathbox,
+# since it's nice to have videos auto-load even if you're not using math.
 
-window.slides or= {}
-window.slides.transition or= 500
-window.slides.$visibleIframes = null
-window.slides.$iframeIndex = {}
+TRANSITION = 300
+$IFRAME_INDEX = {}
 
 
 disableIframe = (iframe) ->
@@ -25,13 +23,9 @@ enableIframe = (iframe) ->
 
 
 changeSlide = (e, from, to) ->
-  getTopSlide = (step) ->
-    $slide = $.deck('getSlide', step)
-    $parents = $slide.parents('.slide')
-    if $parents.length then $parents else $slide
-
-  $slide = getTopSlide(to)
-  slides.$visibleIframes = $slide.find('iframe')
+  $subslide = $.deck('getSlide', to)
+  $parents = $subslide.parents('.slide')
+  $slide = if $parents.length then $parents else $subslide
 
   # Start playing videos in our new slide.
   $slide.find('video').each -> @play()
@@ -46,16 +40,16 @@ changeSlide = (e, from, to) ->
     $.deck('getSlide', from).find('iframe').each ->
       return unless /youtube\.com/.test $(@).attr('src')
       @contentWindow.postMessage '{"event":"command","func":"pauseVideo","args":""}', '*'
-  ), slides.transition / 2
+  ), TRANSITION
 
   # Preload nearby iframes.
-  slides.$iframeIndex[to].forEach (iframe) ->
-    setTimeout (-> enableIframe(iframe)), slides.transition / 2
+  $IFRAME_INDEX[to].forEach (iframe) ->
+    setTimeout (-> enableIframe(iframe)), TRANSITION
 
   # Unload non-nearby iframes.
-  $('iframe').not(slides.$iframeIndex[to]).each ->
+  $('iframe').not($IFRAME_INDEX[to]).each ->
     iframe = @
-    setTimeout (-> disableIframe(iframe)), slides.transition / 2
+    setTimeout (-> disableIframe(iframe)), TRANSITION
 
 
 $ ->
@@ -64,10 +58,9 @@ $ ->
     $this = $(@)
     $parents = $this.parents('.slide')
     $this = $parents if $parents.length
-    $iframes = $this.find('iframe')
     [i-1, i, i+1].forEach (i) ->
-      slides.$iframeIndex[i] or= []
-      $iframes.each -> slides.$iframeIndex[i].push @
+      $IFRAME_INDEX[i] or= []
+      $this.find('iframe').each -> $IFRAME_INDEX[i].push @
 
   # Disable all iframes at first.
   $('iframe').each -> disableIframe(@)
