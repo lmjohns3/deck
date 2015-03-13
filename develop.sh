@@ -2,6 +2,6 @@
 
 jade --pretty .
 sass --update .
-coffee -c .
+coffee --compile .
 
 python -m http.server 8080
