@@ -3,18 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=1024, user-scalable=no">
-    <link rel="stylesheet" media="screen" href="fonts/fonts.css">
-    <link rel="stylesheet" media="screen" href="deck/core/deck.core.css">
-    <link rel="stylesheet" media="screen" href="deck/extensions/goto/deck.goto.css">
-    <link rel="stylesheet" media="screen" href="deck/extensions/menu/deck.menu.css">
-    <link rel="stylesheet" media="screen" href="deck/extensions/status/deck.status.css">
-    <link rel="stylesheet" media="screen" href="deck/extensions/scale/deck.scale.css">
-    <link rel="stylesheet" media="screen" href="deck/themes/transition/fade.css">
-    <link rel="stylesheet" media="screen" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
-    <link rel="stylesheet" media="screen" href="theme.css">
-    <link rel="stylesheet" media="print" href="deck/core/print.css">
-    <script src="deck/modernizr.custom.js"></script>
+    <meta name="viewport" content="width=1280, user-scalable=no">
+    <link rel="stylesheet" media="screen" href="local/fonts/fonts.css">
+    <link rel="stylesheet" media="screen" href="local/deck.js/core/deck.core.css">
+    <link rel="stylesheet" media="screen" href="local/deck.js/extensions/goto/deck.goto.css">
+    <link rel="stylesheet" media="screen" href="local/deck.js/extensions/menu/deck.menu.css">
+    <link rel="stylesheet" media="screen" href="local/deck.js/extensions/status/deck.status.css">
+    <link rel="stylesheet" media="screen" href="local/deck.js/themes/transition/fade.css">
+    <link rel="stylesheet" media="screen" href="styles/slides.css">
+    <link rel="stylesheet" media="print" href="local/deck.js/core/print.css">
+    <script src="local/deck.js/modernizr.custom.js"></script>
     <title>Presentation</title>
   </head>
   <body>
@@ -25,7 +23,8 @@
           <h1>Presentation</h1>
           <h2 id="author">Author</h2>
           <h3 id="affiliation">Affiliation</h3>
-          <h3 id="venue" class="spaced">Venue, Date</h3>
+          <h3 id="venue">Venue</h3>
+          <h3 id="date">Date</h3>
         </div>
       </section>
       <section class="slide">
@@ -51,14 +50,28 @@
 
 x = np.random.randn(1000, 10)
 u, s, v = np.linalg.svd(x)
-print s[0]</code></pre>
+print s[0]
+</code></pre>
       </section>
       <section class="slide">
         <h2>Video Example</h2>
         <p>Here is a video (internet required to view):</p>
         <div class="video centered">
-          <iframe src="http://www.youtube.com/embed/epUk3T2Kfno" frameborder="0" allowfullscreen></iframe>
+          <iframe src="http://www.youtube.com/embed/epUk3T2Kfno?enablejsapi=1&amp;autohide=1&amp;rel=0" frameborder="0" allowfullscreen class="autoplay"></iframe>
         </div>
+      </section>
+      <section class="slide">
+        <h2>Mathbox Example</h2>
+        <div class="video video-16x9 centered">
+          <iframe src="mathbox/mathbox.html#example" frameborder="0"></iframe>
+        </div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+      </section>
+      <section class="slide">
+        <h2>Thanks!</h2>
       </section>
       <!-- END SLIDES-->
       <p aria-role="status" class="deck-status"><span class="deck-status-current"></span>/<span class="deck-status-total"></span>
@@ -72,17 +85,14 @@ print s[0]</code></pre>
     </div>
   </body>
 </html>
-<script src="deck/jquery.min.js"></script>
-<script src="deck/core/deck.core.js"></script>
-<script src="deck/extensions/menu/deck.menu.js"></script>
-<script src="deck/extensions/goto/deck.goto.js"></script>
-<script src="deck/extensions/status/deck.status.js"></script>
-<script src="deck/extensions/scale/deck.scale.js"></script>
+<script src="local/deck.js/jquery.min.js"></script>
+<script src="local/deck.js/core/deck.core.js"></script>
+<script src="local/deck.js/extensions/menu/deck.menu.js"></script>
+<script src="local/deck.js/extensions/goto/deck.goto.js"></script>
+<script src="local/deck.js/extensions/status/deck.status.js"></script>
+<script src="local/highlight.js/highlight.min.js"></script>
 <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
-<script src="highlight/highlight.min.js"></script>
-<script>
-  $(function() { $.deck('.slide'); });
-  hljs.initHighlightingOnLoad();
-</script>
+<script src="local/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="scripts/iframes.js"></script>
+<script src="scripts/mathbox.js"></script>
+<script src="scripts/slides.js"></script>

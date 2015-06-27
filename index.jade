@@ -1,0 +1,96 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    meta(name="viewport", content="width=1280, user-scalable=no")
+    link(rel="stylesheet", media="screen", href="local/fonts/fonts.css")
+    link(rel="stylesheet", media="screen", href="local/deck.js/core/deck.core.css")
+    link(rel="stylesheet", media="screen", href="local/deck.js/extensions/goto/deck.goto.css")
+    link(rel="stylesheet", media="screen", href="local/deck.js/extensions/menu/deck.menu.css")
+    link(rel="stylesheet", media="screen", href="local/deck.js/extensions/status/deck.status.css")
+    link(rel="stylesheet", media="screen", href="local/deck.js/themes/transition/fade.css")
+    link(rel="stylesheet", media="screen", href="styles/slides.css")
+    link(rel="stylesheet", media="print", href="local/deck.js/core/print.css")
+    script(src="local/deck.js/modernizr.custom.js")
+    title Presentation
+  body
+    .deck-container
+
+      // BEGIN SLIDES
+
+      section.slide#title
+        .centered.vcenter
+          h1 Presentation
+          h2#author Author
+          h3#affiliation Affiliation
+          h3#venue Venue
+          h3#date Date
+
+      section.slide
+        h2 Content
+        p Here is some text.
+        p Here is \(\sum_{i=1}^N i^2\) some math.
+        p \[ -\log \mathcal{N}(x; \mu, \Sigma) \propto \frac{(x - \mu)^\top \Sigma^{-1} (x - \mu)}{2} \]
+
+      section.slide
+        h2 Lists
+        ol
+          li Number one! Number one! Number one! Number one! Number one! Number one! Number one! Number one! Number one!
+          li Number two!
+        ul
+          li One item.
+          li Another item. This item is quite long so that it will wrap. This item is quite long so that it will wrap.
+
+      section.slide
+        h2 Code Example
+        pre.rounded
+          code.
+            import numpy as np
+
+            x = np.random.randn(1000, 10)
+            u, s, v = np.linalg.svd(x)
+            print s[0]
+
+      section.slide
+        h2 Video Example
+        p Here is a video (internet required to view):
+        .video.centered
+          iframe(class="autoplay", src="http://www.youtube.com/embed/epUk3T2Kfno?enablejsapi=1&autohide=1&rel=0", frameborder="0", allowfullscreen)
+
+      section.slide
+        h2 Mathbox Example
+        .video.video-16x9.centered
+          iframe(src="mathbox/mathbox.html#example", frameborder="0")
+        .slide
+        .slide
+        .slide
+        .slide
+
+      section.slide
+        h2 Thanks!
+
+      // END SLIDES
+
+      p.deck-status(aria-role="status")
+        span.deck-status-current
+        = '/'
+        span.deck-status-total
+
+      form(action=".", method="get", class="goto-form")
+        label(for="goto-slide") Go to slide:
+        input(type="text", name="slidenum", id="goto-slide", list="goto-datalist")
+        datalist#goto-datalist
+        input(type="submit", value="Go")
+
+script(src="local/deck.js/jquery.min.js")
+script(src="local/deck.js/core/deck.core.js")
+script(src="local/deck.js/extensions/menu/deck.menu.js")
+script(src="local/deck.js/extensions/goto/deck.goto.js")
+script(src="local/deck.js/extensions/status/deck.status.js")
+script(src="local/highlight.js/highlight.min.js")
+script(src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+script(src="local/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+script(src="scripts/iframes.js")
+script(src="scripts/mathbox.js")
+script(src="scripts/slides.js")
