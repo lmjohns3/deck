@@ -192,9 +192,40 @@ body
 .no-touch .deck-container.deck-menu .slide:hover
   border-color: #e377c2
 
-.csstransforms .vcenter
-  padding: 0
-
 ::selection
   background: #d62728
   color: #ffffff
+
+h1, .vcenter
+  font-weight: bold
+  text-align: center
+  padding-top: 1em
+  max-height: 100%
+
+  .csstransforms &
+    padding: 0
+    position: absolute
+    left: 0
+    right: 0
+    top: 50%
+    -webkit-transform: translate(0, -50%)
+    -moz-transform: translate(0, -50%)
+    -ms-transform: translate(0, -50%)
+    -o-transform: translate(0, -50%)
+    transform: translate(0, -50%)
+
+.vcenter h1
+  position: relative
+  top: auto
+  padding: 0
+  -webkit-transform: none
+  -moz-transform: none
+  -ms-transform: none
+  -o-transform: none
+  transform: none
+
+.quiet
+  color: #ccc
+
+  &:before
+    color: #ccc
