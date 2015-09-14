@@ -94,7 +94,7 @@ if [[ "$install" = *" fonts "* ]]
 then
     echo "Installing fonts ..."
     mkdir -p local/fonts
-    curl -sSL "http://fonts.googleapis.com/css?family=$FONTS" > local/fonts/_fonts.css
+    curl -sSL "http://fonts.googleapis.com/css?family=$FONTS" > local/fonts/fonts.css
     grep src local/fonts/fonts.css | \
         sed 's|^  src\: local(.*), local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > local/fonts/\1.ttf|' | \
         sed 's|^  src\: local(.\(.*\).), url(\(.*\)) format.*|echo "- \1"; curl -sSL "\2" > local/fonts/\1.ttf|' | bash
