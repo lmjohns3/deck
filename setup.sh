@@ -8,7 +8,7 @@ usage() {
 setup.sh [-dfm] [-l "A B ..."] [-t STYLE]
 
 Command-line arguments:
-  -b              install mathbox.js
+  -b              install mathbox
   -d              install deck.js
   -e              install executables (sass, jade, coffee)
   -f              install PT, Source, Merriweather, and Inconsolata fonts
@@ -118,14 +118,10 @@ if [[ "$install" = *" mathbox "* ]]
 then
     (
         cd local
-        echo "Downloading MathBox.js ..."
-        curl -sSL "https://github.com/unconed/MathBox.js/archive/master.zip" > mathbox.zip
-        curl -sSL "https://github.com/unconed/ThreeRTT.js/archive/master.zip" > threertt.zip
+        echo "Downloading MathBox ..."
+        curl -sSL "http://acko.net/files/mathbox2/mathbox-0.0.2.zip" > mathbox.zip
         echo "Unpacking MathBox ..."
         unzip mathbox.zip >/dev/null 2>&1
-        mv MathBox.js-master mathbox.js
-        unzip threertt.zip >/dev/null 2>&1
-        mv ThreeRTT.js-master threertt.js
     )
 fi
 
